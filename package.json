@@ -20,6 +20,8 @@
   "build": {
     "appId": "com.example.monkeydesktop",
     "productName": "MonkeyDesktop",
+    "publish": null,
+
     "directories": {
       "output": "dist"
     },
