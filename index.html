@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Desktop Monkey</title>
+  <!-- Preload all images -->
+  <link rel="preload" href="assets/MonkeysitOK.png" as="image">
+  <link rel="preload" href="assets/MonkeysleepOK.png" as="image">
+  <link rel="preload" href="assets/monkey-scratchOK.png" as="image">
+  <link rel="preload" href="assets/Monkeyscratch2OK.png" as="image">
+  <!-- Preload audio metadata -->
+  <link rel="preload" href="assets/huluhulu.m4a" as="audio">
+  <style>
+    body {
+      margin: 0;
+      background: transparent;
+      overflow: hidden;
+      position: relative;
+      -webkit-app-region: drag; /* Enable dragging on body */
+    }
+    
+    #monkey {
+      width: 100%;
+      height: 100%;
+      image-rendering: pixelated; /* keeps pixel art crisp */
+      object-fit: contain;
+      cursor: pointer;
+      -webkit-app-region: no-drag; /* Prevent dragging on monkey, allow clicks */
+    }
+    
+    /* Bigger drag handle */
+    #dragHandle {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 24px;
+      height: 24px;
+      background: rgba(100, 100, 100, 0.8);
+      border-radius: 50%;
+      cursor: move;
+      -webkit-app-region: drag; /* Enable dragging on handle */
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      transition: background-color 0.2s;
+      z-index: 999; /* Ensure it's on top */
+    }
+    
+    #dragHandle:hover {
+      background: rgba(150, 150, 150, 0.9);
+    }
+    
+    /* Hide handle when sleeping */
+    .sleeping #dragHandle {
+      opacity: 0.3;
+    }
+  </style>
+</head>
+<body>
+  <img
+    id="monkey"
+    src="assets/MonkeysitOK.png"
+    alt="Pixel art monkey desktop pet. Hover to sleep, leave to wake."
+    role="button"
+  />
+  
+  <!-- Small drag handle -->
+  <div id="dragHandle" title="Drag to move monkey"></div>
+  
+  <audio
+    id="monkeySound"
+    src="assets/huluhulu.m4a"
+    preload="metadata"
+    loop
+  ></audio>
+  <script src="renderer.js"></script>
+</body>
+</html>
+
+
+
+
+

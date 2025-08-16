@@ -1,0 +1,39 @@
+{
+  "name": "monkeydesktop",
+  "version": "1.0.0",
+  "description": "A pixel-art monkey desktop pet",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --enable-logging",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["electron", "desktop-pet", "monkey"],
+  "author": "Your Name",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^37.2.6",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.example.monkeydesktop",
+    "productName": "MonkeyDesktop",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*"
+    ],
+    "mac": {
+      "icon": "assets/icon.icns",
+      "target": ["dmg"]
+    },
+    "win": {
+      "icon": "assets/icon.png",
+      "target": ["nsis"]
+    }
+  }
+}
+
